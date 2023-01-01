@@ -1,5 +1,9 @@
 <?php
-require 'Connection.php';
+
+namespace app\database;
+
+use app\database\Connection;
+use PDO;
 
 class Transaction
 {

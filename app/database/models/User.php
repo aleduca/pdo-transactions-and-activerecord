@@ -1,5 +1,10 @@
 <?php
 
+namespace app\database\models;
+
+use app\database\ActiveRecord;
+use app\database\Transaction;
+
 class User extends ActiveRecord
 {
   public const TABLENAME = 'users';

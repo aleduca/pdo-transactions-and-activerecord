@@ -1,5 +1,7 @@
 <?php
 
+namespace app\database;
+
 abstract class ActiveRecord extends ActiveRecordActions
 {
   protected array $data = [];

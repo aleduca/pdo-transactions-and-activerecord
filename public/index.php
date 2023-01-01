@@ -1,10 +1,9 @@
 <?php
 
-require 'ActiveRecordActions.php';
-require 'ActiveRecord.php';
-require 'Transaction.php';
-require 'User.php';
-require 'Post.php';
+require '../vendor/autoload.php';
+
+use app\database\models\Post;
+use app\database\Transaction;
 
 try {
   Transaction::open();
@@ -30,6 +29,6 @@ try {
 
   Transaction::close();
 } catch (\Throwable $th) {
-  var_dump($th->getMessage());
+  var_dump($th->getTrace());
   Transaction::rollback();
 }

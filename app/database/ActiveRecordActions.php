@@ -1,8 +1,13 @@
 <?php
 
+namespace app\database;
+
+use app\database\Transaction;
+
+use PDO;
+
 abstract class ActiveRecordActions
 {
-
   private function update(string $tableName)
   {
     $conn = Transaction::get();
