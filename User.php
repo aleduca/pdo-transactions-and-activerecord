@@ -1,7 +1,9 @@
 <?php
 
-class User
+class User extends ActiveRecord
 {
+  public const TABLENAME = 'users';
+
   public function getUsers()
   {
     $conn = Transaction::get();
