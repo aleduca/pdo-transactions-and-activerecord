@@ -8,6 +8,8 @@ use PDO;
 
 abstract class ActiveRecordActions
 {
+  protected array $data = [];
+
   private function update(string $tableName)
   {
     $conn = Transaction::get();

@@ -4,8 +4,6 @@ namespace app\database;
 
 abstract class ActiveRecord extends ActiveRecordActions
 {
-  protected array $data = [];
-
   public function __set($index, $value)
   {
     if (!isset($this->data[$index])) {
