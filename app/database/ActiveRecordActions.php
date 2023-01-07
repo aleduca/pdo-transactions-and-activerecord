@@ -82,13 +82,16 @@ abstract class ActiveRecordActions
 
   public function delete(?int $id = null)
   {
+    $class = get_class($this);
+    $tableName = constant("{$class}::TABLENAME");
+
     $conn = Transaction::get();
 
     if (array_key_exists('id', $this->data)) {
       $id = $this->data['id'];
     }
 
-    $prepare = $conn->prepare('delete from posts where id = :id');
+    $prepare = $conn->prepare("delete from {$tableName} where id = :id");
     return $prepare->execute(['id' => $id]);
   }
 }
