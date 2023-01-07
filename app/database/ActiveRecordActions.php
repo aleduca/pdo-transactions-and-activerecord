@@ -79,4 +79,16 @@ abstract class ActiveRecordActions
     $query = $conn->query($sql);
     return $query->fetchAll(PDO::FETCH_CLASS, static::class);
   }
+
+  public function delete(?int $id = null)
+  {
+    $conn = Transaction::get();
+
+    if (array_key_exists('id', $this->data)) {
+      $id = $this->data['id'];
+    }
+
+    $prepare = $conn->prepare('delete from posts where id = :id');
+    return $prepare->execute(['id' => $id]);
+  }
 }
