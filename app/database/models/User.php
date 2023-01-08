@@ -16,11 +16,4 @@ class User extends ActiveRecord
     $prepare->execute();
     return $prepare->fetchAll();
   }
-
-  public function delete(int $id)
-  {
-    $conn = Transaction::get();
-    $prepare = $conn->prepare('delete from users where id = :id');
-    return $prepare->execute(['id' => $id]);
-  }
 }

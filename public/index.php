@@ -3,22 +3,27 @@
 require '../vendor/autoload.php';
 
 use app\database\models\Post;
+use app\database\models\User;
 use app\database\Transaction;
 
 try {
   Transaction::open();
 
-  $post = new Post;
-  $post->id = 13;
-  // $user->id = 99;
-  // $user->firstName = 'Joao';
-  // $user->lastName = 'Santos';
+  // $post = new Post;
+  $user = new User;
+  $user->id = 5;
+  // $post->id = 13;
+  // $user->id = 93;
+  // $user->firstName = 'Alexandre';
+  // $user->lastName = 'Cardoso';
   // $user->email = 'email12@email.com.br';
   // $user->password = password_hash('123', PASSWORD_DEFAULT);
   // $user = $user->getById('id, firstName, lastName', 99);
-  $deleted = $post->delete();
+  $users = $user->getById('firstName,lastName,email');
 
-  var_dump($deleted);
+  // $deleted = $user->delete(92);
+
+  var_dump($users);
 
   // foreach ($posts as $post) {
   //   echo $post->title . '<br />';
